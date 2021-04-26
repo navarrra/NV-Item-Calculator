@@ -1,10 +1,13 @@
-let x = 4;
 
-function band(){
-  let y = (x-1);
-  return Math.pow(2,y);
+
+function band(num){
+  let y = (num-1);
+  let result = Math.pow(2,y);
+
+  document.getElementById("result").innerHTML = "<h1>" + result + "</h1>";
+  
 }
 
-console.log(band())
+
 
 
