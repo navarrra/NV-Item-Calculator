@@ -1,8 +1,8 @@
+//variables
 let customNum = document.getElementById('bandnum').value
 let hexToggle = true;
 
-
-
+//show and hide LTE and NR preset buttons
 function selectNetwork(e){
     document.getElementById("ltebandbtns").style.display = "none";
     document.getElementById("nrbandbtns").style.display = "none";
@@ -17,6 +17,7 @@ function selectNetwork(e){
    
 }
 
+//hex toggle button true/false
 function toggleBtn(){
   if(hexToggle===true){
     hexToggle=false;
@@ -26,6 +27,7 @@ function toggleBtn(){
   
 }
 
+//band math
 function band(num){
   
   let y = (num-1);
