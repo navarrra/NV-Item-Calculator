@@ -1,5 +1,5 @@
-
 let customNum = document.getElementById('bandnum').value
+let hexToggle = true;
 
 
 
@@ -17,12 +17,27 @@ function selectNetwork(e){
    
 }
 
+function toggleBtn(){
+  if(hexToggle===true){
+    hexToggle=false;
+  }else{
+    hexToggle=true;
+  }
+  
+}
+
 function band(num){
   
   let y = (num-1);
-  let result = Math.pow(2,y).toString(16);
+  let result = Math.pow(2,y)
 
-  document.getElementById("result").innerHTML = `<h1>0X${result}</h1>`;
+  
+  if(hexToggle===true){
+    document.getElementById("result").innerHTML = `<h1 class="text-center">0X${result.toString(16)}</h1>`;
+    result.toString(16);
+  }else{
+    document.getElementById("result").innerHTML = `<h1 class="text-center">${result}</h1>`;
+  }
   
 }
 

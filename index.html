@@ -14,17 +14,20 @@
     <div class="container-fluid position-absolute h-100">
         <div class="position-relative">
             <div class="position-absolute top-0 start-50 translate-middle-x">
-                <h1>NV Band Calculator</h1>
+                <h1 class="title">NV Band Calculator</h1>
             </div>
+        </div> 
+        <div class="resultsection position-absolute  start-50 translate-middle text-center">
+          <div id="result"></div>
         </div>
-            <div class="dropdown position-absolute top-50 start-50 translate-middle text-center">
-                <div id="result" class="pb-5 top-25"></div>
-                <div class="dropdown">
+            <div class="dropdown position-absolute start-50 translate-middle text-center">
+                
+                <div class="dropdownmenu">
                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                       Choose RAT
                     </a>
                   
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
                       <li><a class="dropdown-item networktype lte" onclick="selectNetwork('lte')" href="#">4G LTE</a></li>
                       <li><a class="dropdown-item networktype nr" onclick="selectNetwork('nr')" href="#">5G NR</a></li>
                     </ul>
@@ -44,31 +47,32 @@
                     <button type="button" value="5" onclick="band(66)" class="btn btn-success">Band n66</button>
                     <button type="button" value="12" onclick="band(41)" class="btn btn-success">Band n41</button>
                     <button type="button" value="13" onclick="band(71)" class="btn btn-success">Band n71</button>
-                </div>
-                
+                </div>   
             </div>  
         </div>
 
-        <div class="position-absolute top-50 start-50 translate-middle text-center">
+        <div class="customnum position-absolute start-50 translate-middle text-center">
           <div class="mt-3 position-relative text-center w-100">
             <input id="bandnum" class="form-control form-control-lg bandnum" type="text" placeholder="Enter band" aria-label=".form-control-lg example">
           </div>
           <div class="form-check form-switch mt-3" >
-            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" onclick="toggleBtn()" checked>
             <label class="form-check-label" for="flexSwitchCheckChecked">Hexadecimal</label>
           </div>
           <div class="mt-3">
               <input class="btn btn-primary" type="submit" value="Submit" onclick="band(bandnum.value)">
           </div>
         </div>
-         
+        <div class="version">
+          <p>ver.1.0</p>
+        </div>
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <script src="main.js"></script>"
+    <script src="main.js"></script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
