@@ -33,7 +33,7 @@
                       <li><a class="dropdown-item networktype nr" onclick="selectNetwork('nr')" href="#">5G NR</a></li>
                     </ul>
                 </div>
-                <div id="ltebandbtns" class="ltebandbtns lte">
+                <!-- <div id="ltebandbtns" class="ltebandbtns lte">
                     <button type="button" value="2" onclick="band(2)" class="btn btn-success">Band 2</button>
                     <button type="button" value="4" onclick="band(4)" class="btn btn-success">Band 4</button>
                     <button type="button" value="5" onclick="band(5)" class="btn btn-success">Band 5</button>
@@ -41,7 +41,32 @@
                     <button type="button" value="13" onclick="band(13)" class="btn btn-success">Band 13</button>
                     <button type="button" value="66" onclick="band(66)" class="btn btn-success">Band 66</button>
                     <button type="button" value="71" onclick="band(71)" class="btn btn-success">Band 71</button>
+                </div> -->
+
+                <div class="btn-group ltebandbtns" id="ltebandbtns" role="group" aria-label="Basic checkbox toggle button group">
+                  <input type="checkbox" class="btn-check" id="btncheck1" onclick="band(2)" autocomplete="off">
+                  <label class="btn ltebtn btn-outline-primary" for="btncheck1">Band 2</label>
+                
+                  <input type="checkbox" class="btn-check" id="btncheck2" onclick="band(4)" autocomplete="off">
+                  <label class="btn ltebtn btn-outline-primary" for="btncheck2">Band 4</label>
+                
+                  <input type="checkbox" class="btn-check" id="btncheck3" onclick="band(5)" autocomplete="off">
+                  <label class="btn ltebtn btn-outline-primary" for="btncheck3">Band 5</label>
+
+                  <input type="checkbox" class="btn-check" id="btncheck4" onclick="band(12)" autocomplete="off">
+                  <label class="btn ltebtn btn-outline-primary" for="btncheck4">Band 12</label>
+
+                  <input type="checkbox" class="btn-check" id="btncheck5" onclick="band(13)" autocomplete="off">
+                  <label class="btn ltebtn btn-outline-primary" for="btncheck5">Band 13</label>
+
+                  <input type="checkbox" class="btn-check" id="btncheck6" onclick="band(66)" autocomplete="off">
+                  <label class="btn ltebtn btn-outline-primary" for="btncheck6">Band 66</label>
+
+                  <input type="checkbox" class="btn-check" id="btncheck7" onclick="band(71)" autocomplete="off">
+                  <label class="btn ltebtn btn-outline-primary" for="btncheck7">Band 71</label>
                 </div>
+
+
                 <div id="nrbandbtns" class="nrbandbtns nr">
                     <button type="button" value="2" onclick="band(2)" class="btn btn-success">Band n2</button>
                     <button type="button" value="4" onclick="band(5)" class="btn btn-success">Band n5</button>
