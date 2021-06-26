@@ -2,6 +2,7 @@
 let customNum = document.getElementById('bandnum').value;
 let hexToggle = true;
 let bands = [];
+let finalVal;
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 //show and hide LTE and NR preset buttons
@@ -41,28 +42,30 @@ function toggleBtn(){
 
 function band(bnd){
   
-  let finalVal;
   const tempVal = bnd-1;
   let singleConvert = Math.pow(2,tempVal);
-  
   
   bands.push(singleConvert);
 
   finalVal = bands.reduce(reducer);
 
-  
-  
-  //display result in hex or decimal
-  if(hexToggle===true){
-
-    document.getElementById("result").innerHTML = `<h1 class="text-center">0X${finalVal.toString(16).toUpperCase()}</h1>`;
-  
-
-  }else{
-
-    document.getElementById("result").innerHTML = `<h1 class="text-center">${finalVal.toUpperCase()}</h1>`;
-  
-  }
+  displayResult();
 }
 
 
+//display result in hex or decimal
+function displayResult(){
+
+  if(hexToggle===true){
+
+    document.getElementById("result").innerHTML = `<h1 class="text-center">0X${finalVal.toString(16).toUpperCase()}</h1>`;
+
+
+  }else{
+
+    document.getElementById("result").innerHTML = `<h1 class="text-center">${finalVal}</h1>`;
+
+  }
+
+
+}
