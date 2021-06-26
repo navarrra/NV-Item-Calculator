@@ -1,16 +1,23 @@
 //variables
-let customNum = document.getElementById('bandnum').value
+let customNum = document.getElementById('bandnum').value;
 let hexToggle = true;
+let bands = [];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 //show and hide LTE and NR preset buttons
 function selectNetwork(e){
+
     document.getElementById("ltebandbtns").style.display = "none";
     document.getElementById("nrbandbtns").style.display = "none";
+
    if(e === "lte"){
-    console.log("test")
-        document.getElementById("ltebandbtns").style.display = "block";
+   
+      document.getElementById("ltebandbtns").style.display = "block";
+
    }else if(e === "nr"){
-    document.getElementById("nrbandbtns").style.display = "block";
+
+      document.getElementById("nrbandbtns").style.display = "block";
+
    }else{
        
    }
@@ -20,29 +27,42 @@ function selectNetwork(e){
 //hex toggle button true/false
 function toggleBtn(){
   if(hexToggle===true){
+
     hexToggle=false;
+
   }else{
+
     hexToggle=true;
+
   }
   
 }
 
-//band math
-function band(num){
+
+function band(bnd){
   
-  let y = (num-1);
-  let result = Math.pow(2,y)
+  let finalVal;
+  const tempVal = bnd-1;
+  let singleConvert = Math.pow(2,tempVal);
+  
+  
+  bands.push(singleConvert);
+
+  finalVal = bands.reduce(reducer);
 
   
+  
+  //display result in hex or decimal
   if(hexToggle===true){
-    document.getElementById("result").innerHTML = `<h1 class="text-center">0X${result.toString(16)}</h1>`;
-    result.toString(16);
-  }else{
-    document.getElementById("result").innerHTML = `<h1 class="text-center">${result}</h1>`;
-  }
+
+    document.getElementById("result").innerHTML = `<h1 class="text-center">0X${finalVal.toString(16).toUpperCase()}</h1>`;
   
+
+  }else{
+
+    document.getElementById("result").innerHTML = `<h1 class="text-center">${finalVal.toUpperCase()}</h1>`;
+  
+  }
 }
-
-
 
 
