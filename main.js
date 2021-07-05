@@ -19,8 +19,6 @@ function selectNetwork(e){
 
       document.getElementById("nrbandbtns").style.display = "block";
 
-   }else{
-       
    }
    
 }
@@ -39,33 +37,51 @@ function toggleBtn(){
   
 }
 
+function band(bnd, id){
 
-function band(bnd){
-  
+  const tagId = document.getElementById(id);
   const tempVal = bnd-1;
   let singleConvert = Math.pow(2,tempVal);
+
+      if(tagId.value==="true"){
+
+        let positionOfRemoveBand = bands.indexOf(singleConvert);
+
+        bands.splice(positionOfRemoveBand,1);
+        
+        tagId.value = "false";
+          
+      }else{
+
+        tagId.value = "true";
+          bands.push(singleConvert);
+          
+      }
   
-  bands.push(singleConvert);
-
-  finalVal = bands.reduce(reducer);
-
-  displayResult();
+      if(bands.length > 0){
+        finalVal = bands.reduce(reducer);
+        displayResult();
+      }else{
+        console.log("empty");
+        displayResult();
+      }
+ 
 }
 
 
 //display result in hex or decimal
 function displayResult(){
 
-  if(hexToggle===true){
+  if(hexToggle===true && bands.length > 0){
 
     document.getElementById("result").innerHTML = `<h1 class="text-center">0X${finalVal.toString(16).toUpperCase()}</h1>`;
 
-
-  }else{
+  }else if(hexToggle===false && bands.length > 0){
 
     document.getElementById("result").innerHTML = `<h1 class="text-center">${finalVal}</h1>`;
 
+  } else{
+    document.getElementById("result").innerHTML = `<h1 class="text-center">Click bands</h1>`;
   }
-
 
 }
