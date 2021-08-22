@@ -1,5 +1,5 @@
 //variables
-let customNum = document.getElementById('bandnum').value;
+let customNum = document.getElementById('bandnum');
 let hexToggle = true;
 let bands = [];
 let finalVal;
@@ -35,7 +35,7 @@ function toggleBtn(){
     hexToggle=true;
 
   }
-  
+  console.log(hexToggle)
 }
 
 //band conversion function
@@ -46,7 +46,11 @@ function band(bnd, id){
   const tempVal = bnd-1;
   let singleConvert = Math.pow(2,tempVal);
 
+  if(customNum.value > 0 ){
+    finalVal = singleConvert;
+    
 
+  }else{
       //add or remove band to array
       if(tagId.value==="true"){
 
@@ -63,7 +67,7 @@ function band(bnd, id){
         bands.push(singleConvert);
           
       }
-      //
+      
       if(bands.length > 0){
 
         finalVal = bands.reduce(reducer);
@@ -74,6 +78,9 @@ function band(bnd, id){
         displayResult();
 
       }
+
+  }
+  displayResult();
  
 }
 
@@ -81,21 +88,22 @@ function band(bnd, id){
 //display result in hex or decimal
 function displayResult(){
 
-const result =document.getElementById("result");
+let result = document.getElementById("result");
 
 
-  if(hexToggle===true && bands.length > 0){
+  if(hexToggle===true ){
 
     result.innerHTML = `<h1 class="text-center">0X${finalVal.toString(16).toUpperCase()}</h1>`;
 
-  }else if(hexToggle===false && bands.length > 0){
-
-    result.document.getElementById("result").innerHTML = `<h1 class="text-center">${finalVal}</h1>`;
+  }else if(hexToggle===false){
+ 
+    result.innerHTML = `<h1 class="text-center">${finalVal}</h1>`;
 
   }else{
 
-    result.getElementById("result").innerHTML = `<h1 class="text-center">Click bands</h1>`;
+    result.innerHTML = '<h1 class="text-center">Click bands</h1>';
 
   }
 
+  
 }
